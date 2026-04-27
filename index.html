@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
    <nav class="navbar">
     <div class="logo">My Portfolio</div>
-    <div class="menu">
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-menu">⋯</button>
+    <div class="menu" id="main-menu">
         <a href="#home" class = "home-btn">Home</a>
         <a href="#contact">Contact</a>
-        <a href = #projects>Projects</a>
+        <a href="#projects">Projects</a>
         <a href = "#skills">Skills</a>
         <a href = "#hire-me" class = "hire-btn">Hire Me</a>
+       
     </div>
     </nav>
 
@@ -58,23 +61,33 @@
 
   <section id="skills">
 
-        <h1>Skills Section</h1>
+        <h1>Technical Skills</h1>
         <div class="skills-container">
             <div class="skill-box">
                 <h2>HTML</h2>
-                <p>Proficient in creating structured web content using HTML5.</p>
+                <p>Skilled in building clean, semantic, and accessible web page structures with HTML5.</p>
+            </div>
+
+            <div class="skill-box">
+                <h2>CSS</h2>
+                <p>Experienced in creating responsive, polished, and professional user interfaces with modern CSS.</p>
+            </div>
+
+            <div class="skill-box">
+                <h2>JavaScript</h2>
+                <p>Capable of building interactive and dynamic web experiences using JavaScript.</p>
             </div>
 
             <div class="skill-box">
                 <h2>Python</h2>
-                <p>Experienced in styling websites with CSS3 and responsive design.</p>
+                <p>Experienced in writing maintainable Python code for automation, scripting, and backend development.</p>
             </div>
 
             <div class="skill-box">
                 <h2>SQL</h2>
-                <p>Skilled in JavaScript for creating interactive web applications.</p>
+                <p>Proficient in designing and querying databases to manage and retrieve data efficiently.</p>
             </div>
-       
+        </div>
     </section>
 
 
@@ -110,7 +123,7 @@
 
 
 
- 
+
 <section id="hire-me">
     <h1 class="hire-title">Hire Me</h1>
 
@@ -123,7 +136,29 @@
     <a href="cv.pdf" download class="download-btn">Download CV</a>
 </section>
 
+ <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <i class="fa-brands fa-square-whatsapp"></i>
+        </a>
 
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.menu a');
+
+        if (menuToggle && navbar) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navbar.classList.toggle('menu-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.forEach((link) => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 
     
 </body>
